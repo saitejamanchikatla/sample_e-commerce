@@ -1,0 +1,29 @@
+<table mat-table [dataSource]="order" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef> UserId </th>
+      <td mat-cell *matCellDef="let element" style="width: 10% !important;"> {{element.userId}} </td>
+    </ng-container>
+    <ng-container matColumnDef="paid">
+        <th mat-header-cell *matHeaderCellDef> Payment </th>
+        <td mat-cell *matCellDef="let element" style="width: 10% !important;"> {{element.paid}} </td>
+      </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Total </th>
+      <td mat-cell *matCellDef="let element" style="width: 10% !important;"> {{element.total}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<div class="cardList">
+<app-product-form></app-product-form>
+</div>
+<div class="card">
+<app-orders></app-orders>
+</div>

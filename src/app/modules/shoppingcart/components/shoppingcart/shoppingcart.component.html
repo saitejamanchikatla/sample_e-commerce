@@ -1,0 +1,55 @@
+<h2>Shopping Cart</h2>
+<p>You have {{nbrShoppingProduct}} items in your cart</p>
+<table mat-table [dataSource]="productsShopping" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+        <ng-container matColumnDef="urlImage">
+            <th mat-header-cell *matHeaderCellDef> URLIMAGE </th>
+                <td mat-cell *matCellDef="let element" style="width: 25% !important;"> 
+                <img mat-card-image [src]="element.urlImage" style="width: 50px !important; height: 50px !important;
+                      border-radius: 100% !important; background-size: cover;"/>
+                </td>
+        </ng-container>
+        <!-- Position Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element" style="width: 25% !important;"> {{element.title}} </td>
+        </ng-container>
+      
+      
+        <!-- Symbol Column -->
+    
+          
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> WEIGHT </th>
+            <td mat-cell *matCellDef="let element" style="width: 25% !important;"> {{element.weight}} </td>
+          </ng-container>
+          
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> PRICE </th>
+            <td mat-cell *matCellDef="let element" style="width: 25% !important;"> Rs {{element.price}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let row" style="width: 25% !important;"> 
+                <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" (click)="Delete(row)">
+                    <mat-icon aria-label="Delete">delete</mat-icon>
+           </button>
+            </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+      
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title class="card-container-left">Total: Rs {{getTotal()}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button *ngIf="getTotal() >0" (click)="onNext()" color="primary">Next</button>
+    </mat-card-actions>
+</mat-card>

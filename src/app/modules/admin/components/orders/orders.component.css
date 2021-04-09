@@ -1,0 +1,27 @@
+table{
+    width:100%;
+}
+.example-card {
+    max-width: 300px;
+  }
+  .cardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .cardList > *:not(:last-child) {
+    margin-right: 40px;
+  }
+  .cardListItem {
+    flex: 0 1 calc(30% - 20px);
+  }
+  
+  .cardList > * {
+    box-sizing: border-box;
+  }
+  mat-card
+  {
+      margin: 2%;
+  }
+  

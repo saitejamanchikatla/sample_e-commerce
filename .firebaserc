@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "greenfield-7a4f5",
+    "staging": "samplee-commerce-6c77d",
+    "hosting": "samplee-commerce-6c77d"
+  }
+}

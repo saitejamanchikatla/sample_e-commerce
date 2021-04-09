@@ -1,0 +1,14 @@
+    <ng-container *ngIf="course">
+            <h4>{{course.title}} - {{course.weight}}</h4>
+        <div class="cardListItem">
+            <img  mat-card-image [src]="course.urlImage">             
+        </div>
+        <div>
+            <b><p>Rs {{course.price}}</p></b>
+            <p><b>Description:</b></p>
+            <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{course.description}}</p>
+            <div>
+                    <button mat-raised-button color="primary" (click)="close()">Close</button>    
+            </div>
+        </div>
+    </ng-container>

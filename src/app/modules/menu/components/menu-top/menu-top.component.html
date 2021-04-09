@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" style="min-height: 100px !important; height: 100px !important;">
+    <mat-toolbar-row>
+          <img src="assets/images/Logo_321.png" style="min-height: 60px !important; height: 60px !important;"/>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="navbar">
+        <button mat-button [routerLink]="'/'">Home</button>
+        <button mat-button (click)="recapShopping()">{{nbrShoppingProduct}}<i class="material-icons">add_shopping_cart</i></button>
+        <button mat-button *ngIf="!user" [routerLink]="'/Login'">Login</button>
+        <button mat-button *ngIf="user" [matMenuTriggerFor]="Menu">{{user.name}}</button>
+        <mat-menu #Menu="matMenu">
+              <button mat-menu-item [routerLink]="'/My Orders'">My Orders</button>
+              <button mat-menu-item  *ngIf="user && user.isAdmin" [routerLink]="'/manageorders'">Manage orders</button>
+              <button mat-menu-item  *ngIf="user && user.isAdmin" [routerLink]="'/manageproducts'">Manage Products</button>
+              <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+      </mat-toolbar-row>
+</mat-toolbar>

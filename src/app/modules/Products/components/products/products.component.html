@@ -1,0 +1,24 @@
+<mat-tab-group>
+    <mat-tab *ngFor="let categorie of categories" [label]="categorie.label">
+            <div class="cardList">
+                    <ng-container *ngFor="let course of getProductsByCategorie(categorie.key)">
+                            <mat-card class="cardListItem example-card">
+
+                                    <img  mat-card-image (click)="product(course)" [src]="course.urlImage"  style="object-fit: cover;">
+                                    <mat-card-content>
+                                        <a (click)="product(course)">{{course.title}}</a>
+                                       <span fxLayoutAlign="center center"  class="price">{{course.weight}}- Rs {{course.price}}</span>
+                                    </mat-card-content>
+                                    <mat-card-actions fxLayout="row" fxLayoutAlign="center center" *ngIf="!existProductInShoppingCart(course.key)">
+                                            <button fxFlex mat-flat-button color="primary" (click)="addToCart(course)">Add to Cart</button>
+                                    </mat-card-actions>
+                                    <mat-card-actions fxLayout="row" fxLayoutAlign="center center" *ngIf="existProductInShoppingCart(course.key)">
+                                                    <button fxFlex mat-flat-button color="warn" (click)="deleteToCart(course)">Delete from Cart</button>
+                                    </mat-card-actions>
+
+                            </mat-card>
+                    </ng-container>
+            </div>
+    </mat-tab>
+
+</mat-tab-group>

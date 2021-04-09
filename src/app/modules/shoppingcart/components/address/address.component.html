@@ -1,0 +1,77 @@
+<mat-card>
+        <mat-card-title>
+                <div *ngIf="!address">Add Address</div>
+                <div *ngIf="address">Update Address</div>
+        </mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="regiForm" (ngSubmit)="onSubmit(regiForm.value)" *ngIf="regiForm" >
+                <table class="table">
+                    <tr>
+                        <td>
+                            <mat-form-field class="field">
+                                <input formControlName="Name" matInput name="Name" placeholder="Enter Your Name">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!regiForm.get('Name').valid && regiForm.get('Name').touched">
+                                        Please enter your name !!!
+                                </span>
+                             </mat-error>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="field">
+                                <input formControlName="Phone" matInput name="Phone" placeholder="Phone Number">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!regiForm.get('Phone').valid && regiForm.get('Phone').touched">
+                                        Please enter the Phone Number !!!
+                                </span>
+                             </mat-error>
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                                <mat-form-field class="field">
+                                    <input formControlName="City" matInput name="City" placeholder="Enter Hyderabad">
+                                </mat-form-field>
+                                <mat-error>
+                                    <span *ngIf="!regiForm.get('City').valid && regiForm.get('City').touched">
+                                            Please enter the City !!!
+                                    </span>
+                                 </mat-error>
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                    <mat-form-field class="field">
+                                        <input formControlName="Pin" matInput name="Pin" placeholder="PinCode">
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!regiForm.get('Pin').valid && regiForm.get('Pin').touched">
+                                                Please enter the Phone Number !!!
+                                        </span>
+                                     </mat-error>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>
+                                        <mat-form-field class="field">
+                                            <input formControlName="Near" matInput name="Near" placeholder="Near Address like Colony name & H.no">
+                                        </mat-form-field>
+                                        <mat-error>
+                                            <span *ngIf="!regiForm.get('Near').valid && regiForm.get('Near').touched">
+                                                    Please enter the Near Address !!!
+                                            </span>
+                                         </mat-error>
+                                    </td>
+                                </tr>
+                    <tr>
+                            <td  class="content-center">
+                                <button mat-raised-button [disabled]="!regiForm.valid" color="accent">Submit</button>
+                            </td>
+                        </tr>
+                </table>
+            </form>
+        </mat-card-content>
+    </mat-card>

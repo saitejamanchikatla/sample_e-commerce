@@ -1,0 +1,13 @@
+<div class="cardList">
+  <ng-container *ngFor="let course of coursesAccess">
+          <mat-card class="cardListItem example-card">
+
+                  <img mat-card-image [src]="course.urlImage" style="object-fit: cover;">
+                  <mat-card-content>
+                      <a mat-button >{{course.title}}</a>
+                     <span fxLayoutAlign="center center"  class="price">{{course.weight}}- Rs {{course.price}}</span>
+                  </mat-card-content>
+
+          </mat-card>
+  </ng-container>
+</div>

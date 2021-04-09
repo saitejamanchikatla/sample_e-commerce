@@ -1,0 +1,13 @@
+.navbar{
+    justify-content: flex-end;
+}
+.nav{
+    justify-content: flex-start;
+}
+span{
+    padding-right: 1rem;
+}
+img{
+    position: relative;
+    top: 30%;
+}
